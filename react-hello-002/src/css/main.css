@@ -26,10 +26,14 @@ div.input {
   }
 
   button {
-    padding: 8px 12px;
+    padding: 6px 18px;
     background-color: blue;
     color: white;
-    border-radius: 15px;
+    border-radius: 5px;
+
+    &:hover {
+      background-color: green;
+    }
   }
 }
 
