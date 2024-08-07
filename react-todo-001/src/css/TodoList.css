@@ -21,6 +21,12 @@ li.todoItem {
     font-size: 1.2rem;
     text-align: left;
     margin-left: 15px;
+
+    &.complete {
+      text-decoration: line-through;
+      text-decoration-color: blue;
+      color: #999;
+    }
   }
 
   div.complete {

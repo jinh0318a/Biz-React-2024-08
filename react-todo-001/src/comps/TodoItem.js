@@ -1,12 +1,26 @@
-const TodoItem = ({ todo }) => {
+const TodoItem = ({ todo, todoList, setTodoList }) => {
+  const onCompleteClickHandler = (id) => {
+    const result = todoList.map((item) => {
+      if (item.id === id) {
+        return { ...item, complete: !item.complete };
+      }
+      return item;
+    });
+    setTodoList([...result]);
+  };
+
   return (
     <li className="todoItem">
       <div className="date">
-        <div>2024.08.07</div>
-        <div>11:11:11</div>
+        <div>{todo.sdate}</div>
+        <div>{todo.stime}</div>
       </div>
-      <span className="content">{todo}</span>
-      <div className="complete">&#x2713;</div>
+      <span className={todo.complete ? "content complete" : "content"}>
+        {todo.content}
+      </span>
+      <div className="complete" onClick={() => onCompleteClickHandler(todo.id)}>
+        &#x2713;
+      </div>
     </li>
   );
 };
