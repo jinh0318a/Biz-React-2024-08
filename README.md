@@ -39,3 +39,14 @@ npm i [도구이름]
 
 npm i react-uuid
 ```
+
+## git clone 한 프로젝트
+
+- github 에서 clone 한 프로젝트는 `node_modules` 폴더가 없는 상태이다.
+- `react` 등 `nodejs` 관련 프로젝트는 `node_modules` 폴더에 관련된 `dependencies` 들을 다운로드 받아야 정상적으로 실행된다.
+- clone 한 프로젝트는 다음 명령을 반드시 실행해줘야 한다.
+- 명령을 실행하면 `package.json` 파일의 `dependencies` 에 명시된 도구들을 `npmjs.com` 으로 부터 다운로드 받는다.
+
+```bash
+npm install
+```

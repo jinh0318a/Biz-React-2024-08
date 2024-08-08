@@ -1,16 +1,13 @@
+import css from "../css/MemoMainRight.module.css";
+
 const MemoMainRight = ({ memoList }) => {
   const list = memoList.map((memo) => {
     return (
       <li>
-        {memo.id} {memo.subject} {memo.date} {memo.time}
+        {memo.date} {memo.time} {memo.subject}
       </li>
     );
   });
-  return (
-    <div>
-      메모리스트
-      <ul>{list}</ul>
-    </div>
-  );
+  return <ul className={css.main}>{list}</ul>;
 };
 export default MemoMainRight;
