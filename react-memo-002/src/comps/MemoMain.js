@@ -8,6 +8,7 @@ const MemoMain = () => {
   const loadMemos = useCallback(() => {
     const loadMemo = () => {
       const loadMemoList = localStorage.getItem("MEMOS");
+      if (!loadMemoList) return [];
       return JSON.parse(loadMemoList);
     };
     return loadMemo();
