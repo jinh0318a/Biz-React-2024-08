@@ -39,7 +39,7 @@
   color: #555;
 }
 
-.main li .complete {
+.main li .delete {
   opacity: 0;
   font-size: 1.2rem;
   transition: 0.8s;
@@ -48,18 +48,18 @@
   padding: 1rem;
 }
 
-.main li:hover .complete {
+.main li:hover .delete {
   opacity: 1;
-}
-
-.complete:hover {
-  cursor: pointer;
-  color: yellow;
-  background-color: #f6a0a0;
+  &:hover {
+    cursor: pointer;
+    color: yellow;
+    background-color: #f6a0a0;
+  }
 }
 
 .content.complete {
   text-decoration: line-through;
   text-decoration-color: red;
+  text-decoration-style: wavy;
   color: blue;
 }

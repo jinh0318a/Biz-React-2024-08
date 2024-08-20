@@ -1,6 +1,11 @@
 import css from "../css/MemoMainRight.module.css";
 
-const MemoMainRight = ({ memoList, onCompleteMemo }) => {
+const MemoMainRight = ({ memoList, onCompleteMemo, onDeleteMemo }) => {
+  const onDeleteHandler = (id) => {
+    if (window.confirm("메모를 삭제할까요?")) {
+      return onDeleteMemo(id);
+    }
+  };
   const list = memoList.map((memo) => {
     return (
       <li>
@@ -8,11 +13,16 @@ const MemoMainRight = ({ memoList, onCompleteMemo }) => {
           <span>{memo.date}</span>
           <span>{memo.time}</span>
         </div>
-        <span className={memo.complete ? "content complete" : "content"}>
+        <span
+          className={
+            memo.complete ? `${css.content} ${css.complete}` : `${css.content}`
+          }
+          onClick={() => onCompleteMemo(memo.id)}
+        >
           {memo.subject}
         </span>
-        <div className={css.complete} onClick={() => onCompleteMemo(memo.id)}>
-          &#x2713;
+        <div className={css.delete} onClick={() => onDeleteHandler(memo.id)}>
+          &times;
         </div>
       </li>
     );
