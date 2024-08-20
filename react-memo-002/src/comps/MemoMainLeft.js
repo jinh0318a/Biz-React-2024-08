@@ -2,7 +2,7 @@ import css from "../css/MemoMainLeft.module.css";
 import { useState } from "react";
 import { getMemoJSON } from "../modules/MemoUtils";
 
-const MemoMainLeft = ({ memoList, setMemoList }) => {
+const MemoMainLeft = ({ onAddMemo }) => {
   const [memo, setMemo] = useState({});
 
   const onNewMemo = () => {
@@ -25,8 +25,15 @@ const MemoMainLeft = ({ memoList, setMemoList }) => {
     setMemo({ ...memo, [name]: value });
   };
 
-  const onAddMemo = () => {
-    setMemoList([...memoList, memo]);
+  /**
+   *  setMemo(getMemoJSON("",""))
+   *  입력된 memo 를 memoList 에 추가한 후 화면에 보이는 input box 에 내용을 초기화 하기위한 코드
+   *  하지만 이 함수가 실행되는 순간 memoList 에 이미 추가된 memo 의 내용이 변경된다.
+   *  그러한 현상을 방지하기 위하여 getMemoJSON 함수의 return 값을 깊은 복사 형식으로 setMemo 함수에 전달해 주어야 한다
+   */
+  const onAddMemoHandler = () => {
+    onAddMemo(memo);
+    setMemo({ ...getMemoJSON("", "") });
   };
   return (
     <div className={css.main}>
@@ -40,14 +47,16 @@ const MemoMainLeft = ({ memoList, setMemoList }) => {
         placeholder="메모 제목"
         name="subject"
         onChange={onChangeHandler}
+        value={memo.subject}
       />
       <input
         type="text"
         placeholder="메모를 입력하세요"
         name="content"
         onChange={onChangeHandler}
+        value={memo.content}
       />
-      <input type="button" value="추가" onClick={onAddMemo} />
+      <input type="button" value="추가" onClick={onAddMemoHandler} />
     </div>
   );
 };

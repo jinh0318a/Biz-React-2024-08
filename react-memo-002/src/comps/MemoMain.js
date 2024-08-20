@@ -7,15 +7,30 @@ import { useState } from "react";
 const MemoMain = () => {
   const [memoList, setMemoList] = useState([]);
 
+  const onAddMemo = (memo) => {
+    setMemoList([...memoList, memo]);
+  };
+
+  const onCompleteMemo = (id) => {
+    const completeList = memoList.map((memo) => {
+      if (memo.id === id) {
+        return { ...memo, complete: !memo.complete };
+      } else {
+        return memo;
+      }
+    });
+    setMemoList([...completeList]);
+  };
+
   return (
     <>
       <h1 className={css.header}>오늘은 내 생애의 가장 젊은날</h1>
       <section className={css.main}>
         <article className={css.aside}>
-          <MemoMainLeft memoList={memoList} setMemoList={setMemoList} />
+          <MemoMainLeft onAddMemo={onAddMemo} />
         </article>
         <article className={css.aside}>
-          <MemoMainRight memoList={memoList} />
+          <MemoMainRight memoList={memoList} onCompleteMemo={onCompleteMemo} />
         </article>
       </section>
       <footer className={css.footer}>
