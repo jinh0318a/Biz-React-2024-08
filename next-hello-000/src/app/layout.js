@@ -1,7 +1,7 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
 import "./main.css";
-import Link from "next/link";
+import Nav from "@/comps/Nav";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,23 +21,7 @@ const RootLayout = ({ children }) => {
             <input />
           </div>
         </header>
-        <nav className="main">
-          <div>
-            <Link href="/">홈</Link>
-          </div>
-          <div>
-            <Link href="/bbs/notice">공지사항</Link>
-          </div>
-          <div>
-            <Link href="/bbs/free">자유게시판</Link>
-          </div>
-          <div>
-            <Link href="/user/login">로그인</Link>
-          </div>
-          <div>
-            <Link href="/user/join">회원가입</Link>
-          </div>
-        </nav>
+        <Nav></Nav>
         {children}
       </body>
     </html>
