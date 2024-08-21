@@ -26,6 +26,8 @@ npx prisma init --datasource-provider mysql
 
 ```
 
+- 위 명령 실행할때 오류가 발생하는 경우 프로젝트 폴더에 `prisma` 폴더와 `.env` 파일을 삭제한 후 명령을 다시 실행한다.
+
 - `prisma` 폴더와 `.env` 파일이 생성되었는지 확인
 - DB 접속 URL 변경하기 : `.env` 파일을 열어서 DB 접근경로 설정하기
 - 만약 github 등에서 clone 한 경우 `.env` 파일이 없음. 이때는 프로젝트 폴더에 `.env` 파일을 생성한 후 다음 코드를 추가한다
@@ -35,6 +37,7 @@ DATABASE_URL="mysql://아이디:비밀번호@localhost:3306/DB이름"
 ```
 
 - DB Table 정보 불러오기
+- `.env` 파일에 설정된 DB 의 파일정보를 가저와 `schema` 파일을 작성한다 : `prisma/schema.prisma` 파일
 
 ```bash
 npx prisma db pull
