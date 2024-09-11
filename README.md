@@ -10,6 +10,7 @@
 
 ```bash
 npx create-react-app [project]
+npx create-next-app@latest [project]
 ```
 
 - `blank template`를 사용하여 프로젝트 구조를 생성하기
@@ -24,6 +25,7 @@ npx create-react-app [project] --template starter
 
 ```bash
 npm install -g create-react-app
+
 create-react-app [project]
 ```
 
