@@ -6,6 +6,7 @@ const LoginComps = () => {
   return (
     <>
       <div onClick={() => signIn("github")}>github 로그인</div>
+      <div onClick={() => signIn("google")}>google 로그인</div>
     </>
   );
 };
